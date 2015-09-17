@@ -35,7 +35,10 @@ namespace ESPConsole
 
             do
             {
-                COMPort.WriteLine(Console.ReadLine());
+                var CursorLeftPosition = Console.CursorLeft;
+                var line = Console.ReadLine();
+                Console.SetCursorPosition(CursorLeftPosition, Console.CursorTop -1);
+                COMPort.WriteLine(line);
                 Thread.Sleep(250);
             } while (true);
 
